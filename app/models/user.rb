@@ -3,4 +3,25 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :prefecture
+  belongs_to :os_type
+
+  with_options presence: true do
+    validates :nickname, :birthday
+
+    validates :phone_number, format: {with: /\A\d{10,11}\z/, message: "is invalid. Input only number"},
+                             length: {minimum: 10, message: "is too short"}
+
+    validates :prefecture_id, numericality: { other_than: 0 , message: "can't be blank"}
+
+    with_options format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'is invalid. Input full-width characters' } do
+      validates :last_name, :first_name
+    end
+
+    with_options format: { with: /\A[ァ-ヶー]+\z/, message: 'is invalid. Input full-width katakana characters' } do
+      validates :last_name_kana, :first_name_kana
+    end
+  end
 end

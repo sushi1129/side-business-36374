@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_09_13_034018) do
     t.date "birthday", null: false
     t.integer "prefecture_id", null: false
     t.string "phone_namder", null: false
-    t.integer "OS_type_id"
+    t.integer "os_type_id"
     t.string "use_app1"
     t.string "use_app2"
     t.text "profile"

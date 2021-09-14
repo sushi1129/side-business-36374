@@ -13,7 +13,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string  :first_name_kana,    null: false
       t.date    :birthday,           null: false
       t.integer :prefecture_id,      null: false
-      t.string  :phone_namder,       null: false
+      t.string  :phone_namber,       null: false
       t.integer :os_type_id
       t.string  :use_app1
       t.string  :use_app2

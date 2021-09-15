@@ -33,6 +33,7 @@
 .nav__btn:hover{
   color: #fff;
   background: #87CEFA;
+  box-shadow: 1px 3px 10px 1px #DCDCDC;
 }
 
 .nav__logout{

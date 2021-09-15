@@ -2,6 +2,8 @@ class KnowledgesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
+    @knowledges = Knowledge.order("created_at DESC")
+    @knowledge = Knowledge.all
   end
 
   def new

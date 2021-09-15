@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :item do
 
-    after(:build) do |message|
-      message.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
+    after(:build) do |item|
+      item.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
     end
 
     item_name      {Faker::Commerce.product_name}

@@ -6,9 +6,13 @@
       </div>
       <% if user_signed_in? %>
         <div class="nav__right">
+          <div id="post-lists" class="nav__btn" %>新規投稿</div>
           <%= link_to "ログアウト", root_path, class: :nav__logout %>
-          <%= link_to "新規投稿", root_path, class: :nav__btn %>
         </div>
+        <ul class="post_list hidden" id="post-pull-down">
+          <li class="pull_down_post_list"><%= link_to "知識情報の投稿", new_knowledge_path%></li>
+          <li class="pull_down_post_list"><%= link_to "商品情報の投稿", new_item_path%></li>
+        </ul>
       <% else %>
         <div class="nav__right">
           <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>

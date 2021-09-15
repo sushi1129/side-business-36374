@@ -1,0 +1,23 @@
+<%= form_with model: @knowledge, local: true do |f|%>
+
+  <%= render 'shared/error_messages', model: f.object %>
+
+  <div class="field">
+    <%= f.label :knowledge_title, "タイトル" %><br />
+    <%= f.text_field :knowledge_title, id:"knowledge_title" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "商品画像" %><br />
+    <%= f.file_field :image, id:"item_image" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :knowledge_info, "詳細説明" %><br />
+    <%= f.text_area :knowledge_info, class: :form__text, id:"knowledge_info" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>

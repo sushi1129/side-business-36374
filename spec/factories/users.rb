@@ -17,6 +17,6 @@ FactoryBot.define do
     os_type_id            {Faker::Number.within(range: 1..2)}
     use_app1              {Faker::App.name}
     use_app2              {Faker::App.name}
-    profile               {"testテストTEST"}
+    profile               {Faker::Lorem.sentence}
   end
 end

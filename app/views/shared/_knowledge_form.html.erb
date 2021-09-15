@@ -1,4 +1,7 @@
 <%= form_with model: @knowledge, local: true do |f|%>
+
+  <%= render 'shared/error_messages', model: f.object %>
+
   <div class="field">
     <%= f.label :knowledge_title, "タイトル" %><br />
     <%= f.text_field :knowledge_title, id:"knowledge_title" %>

@@ -1,6 +1,6 @@
 class KnowledgesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update]
-  before_action :set_knowledge, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update, :destroy]
+  before_action :set_knowledge, only: [:show, :edit, :update, :destroy]
 
   def index
     @knowledges = Knowledge.order("created_at DESC")
@@ -32,6 +32,11 @@ class KnowledgesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @knowledge.destroy
+    redirect_to root_path
   end
 
   private

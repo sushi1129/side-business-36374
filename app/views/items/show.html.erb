@@ -1,0 +1,66 @@
+<%= render "shared/second_header" %>
+
+<main class="main">
+  <div class="inner">
+    <div class="post__wrapper">
+      <p class="post__hedding">
+        <%= "【#{@item.maker}】" %><%= @item.item_name %>
+      </p>
+      <%= link_to "by #{@item.user.nickname}", root_path, class: :post__user %>
+      <% if current_user.id == @item.user_id%>
+        <div class="post__manage">
+          <%= link_to "編集する", root_path, class: :post__btn %>
+          <%= link_to "削除する", root_path, class: :post__btn %>
+        </div>
+      <% end %>
+      <div class="post__image">
+        <%= image_tag @item.image %>
+      </div>
+      <div class="post__body">
+        <div class="post__detail">
+          <p class="detail__title">商品購入時の値段</p>
+          <p class="detail__message">
+            <%= "¥ #{@item.plice}" %>
+          </p>
+        </div>
+        <div class="post__detail">
+          <p class="detail__title">購入した店舗</p>
+          <p class="detail__message">
+            <%= @item.bought_store %>
+          </p>
+        </div>
+        <% if @item.item_info != '' %>
+          <div class="post__detail">
+            <p class="detail__title">備考</p>
+            <p class="detail__message">
+              <%= @item.item_info %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+      <div class="post__comments">
+        <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
+          <%# <%= form_with model: モデル名,local: true do |f|%>
+            <div class="field">
+              <%# <%= f.label :hoge, "コメント" %><br />
+              <%# <%= f.text_field :hoge, id:"comment_text" %>
+            </div>
+            <div class="actions">
+              <%# <%= f.submit "送信する", class: :form__btn  %>
+            </div>
+          <%# <% end %> 
+        <%# // ログインしているユーザーには上記を表示する %>
+        <ul class="post_lists">
+          <%# 投稿に紐づくコメントを一覧する処理を記述する %>
+            <li class="post_list">
+              <%# <%= " コメントのテキスト "%>
+              <%# <%= link_to "（ ユーザー名 ）", root_path, class: :comment_user %>
+            </li>
+          <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= render "shared/footer" %>

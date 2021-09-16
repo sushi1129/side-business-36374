@@ -1,5 +1,5 @@
 class KnowledgesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :show]
 
   def index
     @knowledges = Knowledge.order("created_at DESC")
@@ -17,6 +17,10 @@ class KnowledgesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @knowledge = Knowledge.find(params[:id])
   end
 
   private

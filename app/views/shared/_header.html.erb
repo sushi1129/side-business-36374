@@ -7,7 +7,7 @@
       <% if user_signed_in? %>
         <div class="nav__right">
           <div class="nav__btn" id="post-lists" >新規投稿</div>
-          <%= link_to "ログアウト", root_path, class: :nav__logout %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
         </div>
         <ul class="post_list hidden" id="post-pull-down">
           <li class="pull_down_post_list"><%= link_to "知識情報の投稿", new_knowledge_path%></li>

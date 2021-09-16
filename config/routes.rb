@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get 'knowledges/index'
   root to: "tops#index"
   resources :items, only: [:index, :new, :create, :show]
-  resources :knowledges, only: [:index, :new, :create]
+  resources :knowledges, only: [:index, :new, :create, :show]
 end

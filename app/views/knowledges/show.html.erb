@@ -10,7 +10,7 @@
       <% if current_user.id == @knowledge.user_id%>
         <div class="post__manage">
           <%= link_to "編集する", edit_knowledge_path, class: :post__btn %>
-          <%= link_to "削除する", root_path, class: :post__btn %>
+          <%= link_to "削除する", knowledge_path, method: :delete, class: :post__btn %>
         </div>
       <% end %>
       <div class="post__image">

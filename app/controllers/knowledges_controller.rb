@@ -23,6 +23,12 @@ class KnowledgesController < ApplicationController
     @knowledge = Knowledge.find(params[:id])
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   private
 
   def knowledge_params

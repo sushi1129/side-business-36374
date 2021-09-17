@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   get 'items/index'
   get 'knowledges/index'
   root to: "tops#index"
-  resources :items
-  resources :knowledges
+  resources :items do
+    resources :item_comments, only: :create
+  end
+  resources :knowledges do
+    resources :knowledge_comments, only: :create
+  end
 end

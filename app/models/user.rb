@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :items
   has_many :item_comments
   has_many :knowledges
+  has_many :knowledge_comments
   
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture

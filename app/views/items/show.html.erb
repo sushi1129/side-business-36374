@@ -6,7 +6,7 @@
       <p class="post__hedding">
         <%= "【#{@item.maker}】" %><%= @item.item_name %>
       </p>
-      <%= link_to "by #{@item.user.nickname}", root_path, class: :post__user %>
+      <%= link_to "by #{@item.user.nickname}", "/users/#{@item.user.id}", class: :post__user %>
       <% if current_user.id == @item.user_id%>
         <div class="post__manage">
           <%= link_to "編集する", edit_item_path, class: :post__btn %>
@@ -52,7 +52,7 @@
           <% @item_comments.each do |item_comment| %>
             <li class="comment_list">
               <%= item_comment.text %>
-              <%= link_to "（ #{item_comment.user.nickname} ）", root_path, class: :comment_user %>
+              <%= link_to "（ #{item_comment.user.nickname} ）", "/users/#{item_comment.user.id}", class: :comment_user %>
             </li>
           <% end %>
         </ul>

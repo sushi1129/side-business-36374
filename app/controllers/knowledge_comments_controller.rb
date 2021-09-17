@@ -1,0 +1,2 @@
+class KnowledgeCommentsController < ApplicationController
+end

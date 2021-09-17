@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
+  has_many :item_comments
   has_many :knowledges
   
   extend ActiveHash::Associations::ActiveRecordExtensions

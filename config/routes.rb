@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   resources :items do
     resources :item_comments, only: :create
   end
-  resources :knowledges
+  resources :knowledges do
+    resources :knowledge_comments, only: :create
+  end
 end

@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item_comment = ItemComment.new
   end
 
   def edit

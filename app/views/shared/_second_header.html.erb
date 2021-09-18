@@ -4,6 +4,17 @@
       <div class="nav__left">
         <h1 class="title"><%= link_to "SEDORI", root_path %></h1>
       </div>
+      <% if user_signed_in? %>
+        <div class="nav__right">
+          <%= link_to current_user.nickname, "/users/#{current_user.id}", class: :nav__link %>
+          <div class="nav__btn" id="post-lists" >投稿する</div>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
+        </div>
+        <ul class="post_list hidden" id="post-pull-down">
+          <li class="pull_down_post_list"><%= link_to "知識情報の投稿", new_knowledge_path%></li>
+          <li class="pull_down_post_list"><%= link_to "商品情報の投稿", new_item_path%></li>
+        </ul>
+      <% end %>
     </div>
   </div>
 </header>

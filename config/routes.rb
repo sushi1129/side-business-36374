@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'knowledges/index'
   root to: "tops#index"
 
-  resources :users, only: :show
+  resources :users, only: [:show, :edit, :update]
   
   resources :items do
     resources :item_comments, only: :create

@@ -13,9 +13,12 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(@user.id)
     else
-      flash.now[:notice] = '投稿に失敗しました'
       render :edit
     end
+  end
+
+  def destroy
+
   end
 
   private

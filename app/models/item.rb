@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
-  has_many :item_comments
-  has_one_attached :image
+  has_many :item_comments, dependent: :destroy
+  has_one_attached :image, dependent: :destroy
 
   with_options presence: true do
     validates :item_name, :maker, :image, :bought_store

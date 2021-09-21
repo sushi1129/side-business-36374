@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.fetch(:user, {}).permit(:nickname, :email, :last_name, :first_name, :last_name_kana, :first_name_kana, :birthday, :prefecture_id, :phone_namber, :os_type_id, :use_app1, :use_app2, :profile)
+    params.require(:user).permit(:nickname, :email, :last_name, :first_name, :last_name_kana, :first_name_kana, :birthday, :prefecture_id, :phone_namber, :os_type_id, :use_app1, :use_app2, :profile)
   end
 
   def set_user

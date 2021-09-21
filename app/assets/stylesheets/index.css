@@ -60,3 +60,8 @@
   text-align: right;
   text-decoration: underline;
 }
+
+.completion_title{
+  font-size: 30px;
+  margin-bottom: 20px;
+}

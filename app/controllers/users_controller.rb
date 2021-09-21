@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_user
-  before_action :correct_user, only: [:edit, :update]
+  before_action :authenticate_user!, except: :index
+  before_action :set_user, except: :index
+  before_action :correct_user, only: [:edit, :update, :destroy]
+
+  def index
+  end
   
   def show
   end
@@ -18,7 +21,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-
+    @user.destroy
+    redirect_to users_index_path
   end
 
   private

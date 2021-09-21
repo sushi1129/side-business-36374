@@ -95,9 +95,11 @@
         <div class="actions">
           <%= f.submit "新規登録", class: :form__btn  %>
         </div>
-      
       <% end %>
-
+      <div class="nav__right">
+        <h2 class="user_page_post_title">ログインページへ</h2>
+        <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
+      </div>
     </div>
   </div>
 </div>

@@ -93,10 +93,10 @@
   border-radius: 3px;
   transition: 0.4s ease;
   margin: 0 15px 20px 5px;
-  box-shadow: 1px 3px 5px 1px #DCDCDC;
 }
 
 .user__btn:hover{
   color: #fff;
   background: #999;
+  box-shadow: 1px 3px 5px 1px #DCDCDC;
 }

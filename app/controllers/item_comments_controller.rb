@@ -10,6 +10,9 @@ class ItemCommentsController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
   private
 
   def item_comment_params

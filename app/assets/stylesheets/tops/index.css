@@ -1,12 +1,17 @@
-.greeting{
+.top_title{
   margin-bottom: 20px;
+  font-size: 18px;
 }
 
-.greeting__link{
-  text-decoration: underline;
+.top_link{
+  text-decoration: underline 2px;
+}
+.top_link:hover{
+  color: gray;
+  text-decoration: none;
 }
 
-.top{
+.top_choise{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;

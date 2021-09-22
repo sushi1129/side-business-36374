@@ -1,13 +1,14 @@
+
 <%= render "shared/header" %>
 <main class="main">
   <div class="inner">
     <% if user_signed_in? %>
-      <div class="greeting">
+      <div class="top_title">
         <%= "こんにちは、" %>
-        <%= link_to "#{current_user.nickname}さん", "users/#{current_user.id}", class: :greeting__link%>
+        <%= link_to "#{current_user.nickname}さん", "users/#{current_user.id}", class: :top_link%>
       </div>
     <% end %>
-    <div class="top">
+    <div class="top_choise">
       <%= link_to knowledges_index_path, class: :choice_btn do %>
         【一般公開】<br>せどりの方法・知識の<br>一覧へ移動
       <% end %>

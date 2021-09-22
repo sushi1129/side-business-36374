@@ -39,6 +39,7 @@
             <li class="comment_list">
               <%= knowledge_comment.text %>
               <%= link_to "（ #{knowledge_comment.user.nickname} ）", "/users/#{knowledge_comment.user.id}", class: :comment_user %>
+              <%= link_to "削除", "#", class: :comment_btn %>
             </li>
           <% end %>
         </ul>

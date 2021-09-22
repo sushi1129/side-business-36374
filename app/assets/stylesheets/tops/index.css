@@ -1,0 +1,29 @@
+.greeting{
+  margin-bottom: 20px;
+}
+
+.greeting__link{
+  text-decoration: underline;
+}
+
+.top{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  min-height: calc(100vh - 161px);
+}
+
+.choice_btn{
+  background-color: #F5F5F5;
+  padding: 100px;
+  border: 1px solid #87CEFA;
+  border-radius: 5px;
+  font-size: 30px;
+  text-align: center;
+  box-shadow: 1px 3px 10px 1px #DCDCDC;
+}
+.choice_btn:hover{
+  color: #fff;
+  background: #87CEFA;
+}

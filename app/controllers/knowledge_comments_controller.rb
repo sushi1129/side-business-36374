@@ -10,6 +10,13 @@ class KnowledgeCommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @knowledge = Knowledge.find(params[:knowledge_id])
+    @knowledge_comment = KnowledgeComment.find(params[:id])
+    @knowledge_comment.destroy
+    redirect_to knowledge_path(@knowledge_comment.knowledge)
+  end
+
   private
 
   def knowledge_comment_params

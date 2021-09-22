@@ -53,6 +53,9 @@
             <li class="comment_list">
               <%= item_comment.text %>
               <%= link_to "（ #{item_comment.user.nickname} ）", "/users/#{item_comment.user.id}", class: :comment_user %>
+              <% if current_user.id == item_comment.user.id%>
+                <%= link_to "削除", item_item_comment_path(@item, item_comment), method: :delete, class: :comment_btn %>
+              <% end %>
             </li>
           <% end %>
         </ul>

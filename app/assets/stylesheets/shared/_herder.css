@@ -1,24 +1,21 @@
-
-/* ヘッダー */
-
 .header {
   background-color: #F0FFFF;
   margin-bottom: 48px;
   padding: 20px 0;
   box-shadow: 0px 3px 10px 1px #DCDCDC;
 }
+
 .inner {
   width: 1024px;
   margin: 0 auto;
 }
+
 .nav {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
-.logo {
-  width: 200px;
-}
+
 .nav__link{
   font-size: 20px;
   text-decoration: underline;
@@ -28,6 +25,7 @@
   text-decoration: none;
   color: gray;
 }
+
 .nav__btn{
   display: inline-block;
   padding: 0.4em 1.6em;
@@ -66,11 +64,12 @@
   box-shadow: 1px 3px 10px 1px #DCDCDC;
 }
 
-.pull_down_post_list{
-  padding: 15px 35px 15px 15px;
-  border: 1px solid #F5F5F5;
-}
 
 .hidden{
   display: none;
+}
+
+.pull_down_post_list{
+  padding: 15px 35px 15px 15px;
+  border: 1px solid #F5F5F5;
 }

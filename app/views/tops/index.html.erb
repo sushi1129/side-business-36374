@@ -1,20 +1,24 @@
 <%= render "shared/header" %>
-<main class="main">
-  <div class="inner">
+<div class="center_main">
+  <div class="center_inner">
     <% if user_signed_in? %>
-      <div class="greeting">
+      <div class="page_heading">
         <%= "こんにちは、" %>
-        <%= link_to "#{current_user.nickname}さん", "users/#{current_user.id}", class: :greeting__link%>
+        <%= link_to "#{current_user.nickname}さん", "users/#{current_user.id}", class: :top_link%>
       </div>
     <% end %>
-    <div class="top">
-      <%= link_to knowledges_index_path, class: :choice_btn do %>
-        【一般公開】<br>せどりの方法・知識の<br>一覧へ移動
-      <% end %>
-      <%= link_to  items_index_path, class: :choice_btn do %>
-        【登録者限定】<br>せどりが成功した商品<br>一覧へ移動
-      <% end %>
+    <div class="top_choise">
+        <%= link_to knowledges_index_path, class: :choice_btn do %>
+          <div>【一般公開】</div>
+          <div>せどりの方法・知識の</div>
+          <div>一覧へ移動</div>
+        <% end %>
+        <%= link_to  items_index_path, class: :choice_btn do %>
+          <div>【登録者限定】</div>
+          <div>せどりが成功した商品</div>
+          <div>一覧へ移動</div>
+        <% end %>
     </div>
   </div>
-</main>
+</div>
 <%= render "shared/footer" %>

@@ -1,103 +1,162 @@
 <%= render "shared/second_header" %>
 
-<div class="main">
-  <div class="inner">
-    <div class="form__wrapper">
-      <h2 class="page-heading">ユーザー新規登録</h2>
+<div class="center_main">
+  <div class="center_inner">
+    <div class="wrapper">
+      <h2 class="page_heading">ユーザー新規登録</h2>
 
       <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
 
         <%= render '/shared/error_messages', model: f.object %>
 
-        <div class="field">
-          <%= f.label :nickname, "ニックネーム" %><br />
-          <%= f.text_field :nickname, id:"user_nickname" %>
+        <div class="group">
+          <div class="field">
+            <label class="form-text">ニックネーム</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div >
+            <%= f.text_field :nickname, class:"input_name", id:"user_nickname" %>
+          </div>
         </div>
 
-        <div class="field">
-          <%= f.label :email, "メールアドレス" %><br />
-          <%= f.email_field :email, id:"user_email", autofocus: true, autocomplete: "email" %>
+        <div class="group">
+          <div class="field">
+            <label class="form-text">メールアドレス</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div >
+            <%= f.email_field :email, class:"input_name", id:"user_email", autofocus: true, autocomplete: "email" %>
+          </div>
         </div>
 
-        <div class="field">
-          <%= f.label :password, "パスワード（6文字以上）" %><br />
-          <%= f.password_field :password, id:"user_password", autocomplete: "new-password" %>
+        <div class="group">
+          <div class="field">
+            <label class="form-text">パスワード（6文字以上）</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div >
+            <%= f.password_field :password, class:"input_name", id:"user_password", autocomplete: "new-password" %>
+          </div>
         </div>
 
-        <div class="field">
-          <%= f.label :password_confirmation, "パスワード再入力" %><br />
-          <%= f.password_field :password_confirmation, id:"user_password_confirmation", autocomplete: "new-password" %>
+        <div class="group">
+          <div class="field">
+            <label class="form-text">パスワード再入力</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div >
+            <%= f.password_field :password_confirmation, class:"input_name", id:"user_password_confirmation", autocomplete: "new-password" %>
+          </div>
         </div>
 
-        <div class="field">
-          <%= f.label :last_name, "姓" %><br />
-          <%= f.text_field :last_name, id:"user_last_name" %>
+        <div class="group">
+          <div class="field">
+            <label class="form-text">お名前(全角)</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div >
+            <%= f.text_field :last_name, class:"input_name", id:"user_last_name" %>
+            <%= f.text_field :first_name, id:"user_first_name" %>
+          </div>
         </div>
 
-        <div class="field">
-          <%= f.label :first_name, "名" %><br />
-          <%= f.text_field :first_name, id:"user_first_name" %>
+        <div class="group">
+          <div class="field">
+            <label class="form-text">お名前カナ(全角)</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div >
+            <%= f.text_field :last_name_kana, id:"user_last_name_kana" %>
+            <%= f.text_field :first_name_kana, id:"user_first_name_kana" %>
+          </div>
         </div>
 
-        <div class="field">
-          <%= f.label :last_name_kana, "セイ" %><br />
-          <%= f.text_field :last_name_kana, id:"user_last_name_kana" %>
+        <div class="group">
+          <div class="field">
+            <label class="form-text">生年月日</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class='input-birth-wrap'>
+            <%= raw sprintf(
+                        f.date_select(
+                          :birthday,
+                          class:'select-birth',
+                          id:"birth-date",
+                          use_month_numbers: true,
+                          prompt:'--',
+                          start_year: 1930,
+                          end_year: (Time.now.year - 5),
+                          date_separator: '%s'),
+                        "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+          </div>
         </div>
 
-        <div class="field">
-          <%= f.label :first_name_kana, "メイ" %><br />
-          <%= f.text_field :first_name_kana, id:"user_first_name_kana" %>
+        <div class="group">
+          <div class="field">
+            <label class="form-text">地域</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div >
+            <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"input_name", id:"user_prefecture"}) %>
+          </div>
         </div>
 
-        <div class='form-text-wrap'>
-          <label class="form-text">生年月日</label>
-        </div>
-        <div class='input-birth-wrap'>
-          <%= raw sprintf(
-                      f.date_select(
-                        :birthday,
-                        class:'select-birth',
-                        id:"birth-date",
-                        use_month_numbers: true,
-                        prompt:'--',
-                        start_year: 1930,
-                        end_year: (Time.now.year - 5),
-                        date_separator: '%s'),
-                      "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+        <div class="group">
+          <div class="field">
+            <label class="form-text">電話番号</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div >
+            <%= f.text_field :phone_namber, class:"input_name", id:"user_phone_namber" %>
+          </div>
         </div>
 
-        <div class="weight-bold-text">地域</div>
-        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"user_prefecture"}) %>
-
-        <div class="field">
-          <%= f.label :phone_namber, "電話番号" %><br />
-          <%= f.text_field :phone_namber, id:"user_phone_namber" %>
+        <div class="group">
+          <div class="field">
+            <label class="form-text">機種</label>
+            <span class="form-any">任意</span>
+          </div>
+          <div >
+            <%= f.collection_select(:os_type_id, OsType.all, :id, :name, {}, {class:"input_name", id:"user_os_type"}) %>
+          </div>
         </div>
 
-        <div class="weight-bold-text">機種</div>
-        <%= f.collection_select(:os_type_id, OsType.all, :id, :name, {}, {class:"select-box", id:"user_os_type"}) %>
-
-        <div class="field">
-          <%= f.label :use_app1, "使用しているアプリ①" %><br />
-          <%= f.text_field :use_app1, id:"user_use_app1" %>
+        <div class="group">
+          <div class="field">
+            <label class="form-text">使用しているアプリ①</label>
+            <span class="form-any">任意</span>
+          </div>
+          <div >
+            <%= f.text_field :use_app1, class:"input_name", id:"user_use_app1" %>
+          </div>
         </div>
 
-        <div class="field">
-          <%= f.label :use_app2, "使用しているアプリ②" %><br />
-          <%= f.text_field :use_app2, id:"user_use_app2" %>
+        <div class="group">
+          <div class="field">
+            <label class="form-text">使用しているアプリ②</label>
+            <span class="form-any">任意</span>
+          </div>
+          <div >
+            <%= f.text_field :use_app2, class:"input_name", id:"user_use_app2" %>
+          </div>
         </div>
 
-        <div class="field">
-          <%= f.label :profile, "プロフィール" %><br />
-          <%= f.text_area :profile, class: :form__text, id:"user_profile" %>
+        <div class="group">
+          <div class="field">
+            <label class="form-text">プロフィール</label>
+            <span class="form-any">任意</span>
+          </div>
+          <div >
+            <%= f.text_area :profile, class: :text, id:"user_profile" %>
+          </div>
         </div>
 
         <div class="actions">
-          <%= f.submit "新規登録", class: :form__btn  %>
+          <%= f.submit "変更する", class: :form__btn  %>
         </div>
       <% end %>
-      <div class="nav__right">
-        <h2 class="user_page_post_title">ログインページへ</h2>
+      <div class="page_navigation">
+        <h2 class="page_navigation_title">ログインページへ</h2>
         <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
       </div>
     </div>

@@ -43,14 +43,14 @@
       <h2 class="page-heading">
         <%= "#{@user.nickname}さんの投稿"%>
       </h2>
-      <ul class="user__card">
-        <li>
+      <ul class="user_card">
+        <li class="user_card_block">
           <h3 class="user_page_post_title">せどりの方法・知識</h3>
           <div class="card__wrapper">
             <%= render partial: "/shared/knowledge", collection: @user.knowledges %>
           </div>
         </li>
-        <li>
+        <li class="user_card_block">
           <h3 class="user_page_post_title">せどり成功商品情報</h3>
           <div class="card__wrapper">
             <%= render partial: "/shared/item", collection: @user.items %>

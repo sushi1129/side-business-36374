@@ -36,6 +36,19 @@
   background: #87CEFA;
 }
 
+.post_page_title{
+  display: flex;
+}
+
+.return_top_btn{
+  margin: 40px 0 0 50px;
+  text-decoration: underline 1px;
+}
+.return_top_btn:hover{
+  color: gray;
+  text-decoration: none;
+}
+
 .card__wrapper {
   display: flex;
   flex-wrap: wrap;

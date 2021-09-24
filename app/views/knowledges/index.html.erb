@@ -1,7 +1,10 @@
 <%= render "shared/header" %>
 <div class="center_main">
   <div class="center_inner">
-    <h2 class="page_heading">せどりの方法・知識</h2>
+    <div class="post_page_title">
+      <h2 class="page_heading">せどりの方法・知識</h2>
+      <%= link_to "トップページへ戻る", root_path, class: :return_top_btn %>
+    </div>
     <div class="card__wrapper">
       <%= render partial: "shared/knowledge", collection: @knowledge %>
     </div>

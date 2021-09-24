@@ -2,6 +2,9 @@
 ![Image from Gyazo](https://i.gyazo.com/b818d7df375db95fae609dfab6feb081.png)
 
 # アプリケーション概要
+>副業「せどり」の情報投稿が出来るアプリケーション。  
+一般公開と登録者限定の2種類の投稿一覧がユーザー登録状態によって観覧できる。  
+
 
 # URL
 https://side-business-36374.herokuapp.com/

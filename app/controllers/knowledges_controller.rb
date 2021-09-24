@@ -1,5 +1,5 @@
 class KnowledgesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_knowledge, only: [:show, :edit, :update, :destroy]
 
   def index

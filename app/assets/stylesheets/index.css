@@ -29,6 +29,7 @@
   font-size: 30px;
   text-align: center;
   box-shadow: 1px 3px 10px 1px #DCDCDC;
+  width: calc(100% / 2 - 30px);
 }
 .choice_btn:hover{
   color: #fff;

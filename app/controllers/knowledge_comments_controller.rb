@@ -6,7 +6,7 @@ class KnowledgeCommentsController < ApplicationController
     else
       @knowledge = @knowledge_comment.knowledge
       @knowledge_comment = @knowledge.knowledge_comment
-      render "knowledge/show"
+      render 'knowledge/show'
     end
   end
 

@@ -3,7 +3,7 @@ class KnowledgesController < ApplicationController
   before_action :set_knowledge, only: [:show, :edit, :update, :destroy]
 
   def index
-    @knowledges = Knowledge.order("created_at DESC")
+    @knowledges = Knowledge.order('created_at DESC')
     @knowledge = Knowledge.all
   end
 

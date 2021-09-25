@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
-    @items = Item.order("created_at DESC")
+    @items = Item.order('created_at DESC')
     @item = Item.all
   end
 
@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
   end
 
   private
-  
+
   def item_params
     params.require(:item).permit(:item_name, :maker, :image, :plice, :bought_store, :item_info).merge(user_id: current_user.id)
   end

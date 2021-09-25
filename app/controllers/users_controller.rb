@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def index
   end
-  
+
   def show
   end
 
@@ -28,7 +28,8 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:nickname, :email, :last_name, :first_name, :last_name_kana, :first_name_kana, :birthday, :prefecture_id, :phone_namber, :os_type_id, :use_app1, :use_app2, :profile)
+    params.require(:user).permit(:nickname, :email, :last_name, :first_name, :last_name_kana, :first_name_kana, :birthday,
+                                 :prefecture_id, :phone_namber, :os_type_id, :use_app1, :use_app2, :profile)
   end
 
   def set_user
@@ -36,9 +37,6 @@ class UsersController < ApplicationController
   end
 
   def correct_user
-    unless current_user.id == @user.id
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_user.id == @user.id
   end
-
 end

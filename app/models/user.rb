@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items, dependent: :destroy
-  has_many :item_comments, dependent: :destroy
   has_many :knowledges, dependent: :destroy
+  has_many :item_comments, dependent: :destroy
   has_many :knowledge_comments, dependent: :destroy
   
   extend ActiveHash::Associations::ActiveRecordExtensions

@@ -32,6 +32,8 @@
 ログイン状態で「新規投稿」ボタンを押すと「知識情報の投稿」「商品情報の投稿」のプルダウンが現れ、選択するとそれぞれの投稿画面へ遷移します。  
 それぞれの投稿画面の必須項目を入力することで投稿できる。
 
+>- 
+
 
 # 目指した課題解決
 
@@ -42,6 +44,7 @@
 # 実装予定の機能
 
 # データベース設計
+## ER図
 ![Image from Gyazo](https://i.gyazo.com/ea651959281bbfa0c78c8dcb79551504.png)
 
 ## usersテーブル
@@ -61,5 +64,14 @@
 | use_app1           | string  |                           |
 | use_app2           | string  |                           |
 | profile            | text    |                           |
+
+## Association
+>- has_many: items
+>- has_many: knowledges
+>- has_many: item_comments
+>- has_many: knowledge_comments
+
+## 
+
 
 # ローカルでの動作方法

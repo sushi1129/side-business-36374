@@ -32,12 +32,17 @@
 ログイン状態で「新規投稿」ボタンを押すと「知識情報の投稿」「商品情報の投稿」のプルダウンが現れ、選択するとそれぞれの投稿画面へ遷移します。  
 それぞれの投稿画面の必須項目を入力することで投稿できる。
 
->- 
-
+>- __コメント投稿機能__  
+各投稿の詳細ページに遷移するとコメント欄を観覧でき、ログイン状態であればコメントを投稿することも出来る。
 
 # 目指した課題解決
+>
 
 # 洗い出した要件
+| 機能 | 目的 | 詳細 | ストーリー |
+| ---- | ---- | ---- | ---------- |
+| ユーザー管理機能 | 未ログインユーザーに使用を制限するため | deviseを使用したユーザー管理のログイン画面と新規登録画面で必須項目を記入することで登録できるようにする。　Emailと電話番号がデータベースで重複しているとユーザー登録できない。 | 新規登録時は、ユーザー名、名前、ナマエ、email、電話番号、パスワード、誕生日、（OSの種類、使用アプリ①、使用アプリ②、プロフィール）を記述して新規登録ボタンを押すことで登録できる。
+登録完了後はトップページに遷移する。 |
 
 # 実装した機能
 
@@ -45,7 +50,7 @@
 
 # データベース設計
 ## ER図
-![Image from Gyazo](https://i.gyazo.com/ea651959281bbfa0c78c8dcb79551504.png)
+![Image from Gyazo](https://i.gyazo.com/720180d92c0208c30e026a2fd127f3ce.png)
 
 ## usersテーブル
 | Column             | Type    | Options                   |
@@ -67,11 +72,59 @@
 
 ## Association
 >- has_many: items
->- has_many: knowledges
 >- has_many: item_comments
+>- has_many: knowledges
 >- has_many: knowledge_comments
 
-## 
+## itemsテーブル
+| Column       | Type       | Options     |
+| ------------ | ---------- | ----------- |
+| item_name    | string     | null: false |
+| maker        | string     | null: false |
+| price        | integer    | null: false |
+| bought_store | string     | null: false |
+| item_info    | text       |             |
+| user         | references |             |
 
+※imageは、ActiveStorageを使用
+
+## Association
+>- belongs_to: user
+>- has_many: item_comments
+
+## item_commentsテーブル
+| Column       | Type       | Options     |
+| ------------ | ---------- | ----------- |
+| item_comment | text       | null: false |
+| user         | references |             |
+| item         | references |             |
+
+## Association
+>- belongs_to: user
+>- belongs_to: item
+
+## knowledgesテーブル
+| Column          | Type       | Options     |
+| --------------- | ---------- | ----------- |
+| knowledge_title | string     | null: false |
+| knowledge_info  | text       | null: false |
+| user            | references |             |
+
+※imageは、ActiveStorageを使用
+
+## Association
+>- belongs_to: user
+>- has_many: knowledge_comments
+
+## knowledge_commentsテーブル
+| Column            | Type       | Options     |
+| ----------------- | ---------- | ----------- |
+| knowledge_comment | text       | null: false |
+| user              | references |             |
+| knowledge         | references |             |
+
+## Association
+>- belongs_to: user
+>- belongs_to: knowledge
 
 # ローカルでの動作方法

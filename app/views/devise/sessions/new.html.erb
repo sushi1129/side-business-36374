@@ -5,6 +5,8 @@
       <h2 class="page_heading">ユーザーログイン</h2>
       <%= form_with model: @user, url: user_session_path, local: true do |f| %>
 
+        <%= render '/shared/error_messages', model: f.object %>
+
         <div class="group">
           <div class="field">
             <label class="form-text">メールアドレス</label>

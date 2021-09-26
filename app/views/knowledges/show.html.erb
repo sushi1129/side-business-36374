@@ -10,8 +10,8 @@
       <%= link_to "by #{@knowledge.user.nickname}", "/users/#{@knowledge.user.id}", class: :post__user %>
       <% if user_signed_in? && current_user.id == @knowledge.user_id %>
         <div class="post__manage">
-          <%= link_to "編集する", edit_knowledge_path, class: :post__btn %>
-          <%= link_to "削除する", knowledge_path, method: :delete, class: :post__btn %>
+          <%= link_to "編集する", edit_knowledge_path(@knowledge.id), class: :post__btn %>
+          <%= link_to "削除する", knowledge_path(@knowledge.id), method: :delete, class: :post__btn %>
         </div>
       <% end %>
       <div class="post__image">
@@ -40,6 +40,7 @@
       <div class="post__comments">
         <% if user_signed_in? %>
           <%= form_with model: [@knowledge, @knowledge_comment],local: true do |f|%>
+            <%= render 'shared/error_messages', model: f.object %>
             <div class="field">
               <%= f.label :text, "コメント" %><br />
               <%= f.text_area :text, class:"comment_text", id:"comment_text" %>

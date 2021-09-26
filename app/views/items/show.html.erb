@@ -10,8 +10,8 @@
       <%= link_to "by #{@item.user.nickname}", "/users/#{@item.user.id}", class: :post__user %>
       <% if current_user.id == @item.user_id%>
         <div class="post__manage">
-          <%= link_to "編集する", edit_item_path, class: :post__btn %>
-          <%= link_to "削除する", item_path, method: :delete, class: :post__btn %>
+          <%= link_to "編集する", edit_item_path(@item.id), class: :post__btn %>
+          <%= link_to "削除する", item_path(@item.id), method: :delete, class: :post__btn %>
         </div>
       <% end %>
       <div class="post__image">
@@ -51,6 +51,7 @@
       </div>
       <div class="post__comments">
         <%= form_with model: [@item, @item_comment],local: true do |f|%>
+          <%= render 'shared/error_messages', model: f.object %>
           <div class="field">
             <%= f.label :text, "コメント" %><br />
             <%= f.text_area :text, class:"comment_text", id:"comment_text" %>

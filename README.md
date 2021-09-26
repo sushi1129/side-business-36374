@@ -2,7 +2,7 @@
 ![Image from Gyazo](https://i.gyazo.com/b818d7df375db95fae609dfab6feb081.png)
 
 # アプリケーション概要
->`副業「せどり」の情報投稿が出来るアプリケーション。`  
+>副業「せどり」の情報投稿が出来るアプリケーション。  
 「投稿する」ボタンを押すとプルダウンが表示され、投稿の種類を選ぶことができる。  
 一般公開と登録者限定の2種類の投稿一覧がユーザー登録状態によって観覧できる。  
 各投稿の詳細を見ることができ、それぞれコメントができる。  
@@ -56,9 +56,34 @@
 | コメント削除機能 | 投稿したコメントを削除できるようにするため | コメントの横にある「削除」ボタンを押すことでそのコメントを削除できる。 | 自身のコメントのみ実行可能。コメントの横の「削除」ボタンを押すことでそのコメントを削除できる。 |
 
 # 実装した機能
->
+- 情報投稿機能  
+  - 「知識情報の投稿」画面遷移  
+  ![Image from Gyazo](https://i.gyazo.com/31cb81f228738be7a93afeb37c4946ef.gif)
+
+  - 「商品情報の投稿」画面遷移
+  ![Image from Gyazo](https://i.gyazo.com/f1a07d59bc47f1d4ca935bd173daab22.gif)
+
+  - 必須項目を正しく入力後、「保存する」でデータが保存できればトップページへ遷移
+  ![Image from Gyazo](https://i.gyazo.com/4a83673434dfe246d989d01114c8d749.gif)
+
+  - 入力が正しくないとエラーメッセージが表示される
+  ![Image from Gyazo](https://i.gyazo.com/267b706d456efd312558ed9840d8a608.gif)
+
+
+- コメント投稿機能
+  - コメントを入力後、「送信する」を押すとコメントが投稿される
+  ![Image from Gyazo](https://i.gyazo.com/560efc4a1c16c96ded20239fc400882e.gif)
+
+  - コメントが入力されていない状態で「送信する」を押すとエラーメッセージが表示される
+  ![Image from Gyazo](https://i.gyazo.com/3dafdc29b78efb8ed522c2ace8420572.gif)
+
+- ユーザー退会機能
+  - ユーザー詳細ページの「削除」を押すとダイアログが表示され、「OK」を押すと「退会しました」と表示される
+  ![Image from Gyazo](https://i.gyazo.com/29592212e1fd1e93c4ccc04470776b89.gif)
+
 
 # 実装予定の機能
+>- エラーメッセージの日本語化
 >- アカウントや投稿などを削除・規制がまとめて管理できる管理者機能
 >- 悪意ある投稿やアカウントに対しての通報機能
 >- ActionCableを使用したコメントの即時更新機能  
@@ -147,3 +172,21 @@
 >- belongs_to: knowledge
 
 # ローカルでの動作方法
+```
+% git clone https://github.com/sushi1129/side-business-36374.git
+% cd side-business-36374
+% bundle install
+% rails db:create
+% rails db:migrate
+% rails s
+ → http://localhost:3000
+```
+
+# 開発環境
+>- フロントエンド：HTML5/CSS(Bootstrap)/JavaScript/jQuery/Ajax
+>- バックエンド：Ruby on Rails(6.0.0)/Ruby(2.6.5)/JavaScript
+>- テスト：RSpec
+>- Linter：Rubocop
+>- データベース：MySQL(5.6.51)/Sequel Pro
+>- インフラ：Heroku
+>- タスク管理：GitHub

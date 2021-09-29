@@ -16,7 +16,7 @@
             <span class="indispensable">必須</span>
           </div>
           <div >
-            <%= f.text_field :nickname, class:"input_name", id:"user_nickname" %>
+            <%= f.text_field :nickname, class:"input_name", id:"user_nickname", placeholder:"例) sideビジネスマン", maxlength:"30" %>
           </div>
         </div>
 
@@ -57,6 +57,7 @@
           </div>
           <div >
             <%= f.text_field :use_app2, class:"input_name", id:"user_use_app2" %>
+            <p class='info-text'>※使用しているアプリが3つ以上ある方はプロフィールにご記入ください</p>
           </div>
         </div>
 

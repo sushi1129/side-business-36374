@@ -71,3 +71,8 @@
   text-decoration: none;
   color: gray;
 }
+
+.card__img{
+  width: 300px;
+  height: 300px;
+}

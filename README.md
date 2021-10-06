@@ -95,7 +95,7 @@
 
 # データベース設計
 ## ER図
-![Image from Gyazo](https://i.gyazo.com/720180d92c0208c30e026a2fd127f3ce.png)
+![Image from Gyazo](https://i.gyazo.com/43957fda43ae8e82aff7037d2fd472b0.png)
 
 ## usersテーブル
 | Column             | Type    | Options                   |

@@ -14,5 +14,6 @@ Rails.application.routes.draw do
 
   resources :knowledges do
     resources :knowledge_comments, only: [:create, :destroy]
+    resources :knowledge_goods, only: [:create, :destroy]
   end
 end

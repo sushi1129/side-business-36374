@@ -28,8 +28,13 @@
       <% if user_signed_in? %>
         <div class="evaluations_btn">
           <div class="evaluation_btn">
-            <%= image_tag "good.png" ,class:"evaluation_icon" ,width:"30",height:"30"%>
-            <span>GOOD 0</span>
+            <%= image_tag "good.png", class:"evaluation_icon" ,width:"30",height:"30" %>
+            <span><%= @knowledge.knowledge_goods.count %></span>
+            <% if current_user.already_knowledge_gooded?(@knowledge) %>
+              <%= button_to 'Goodを取り消す', knowledge_knowledge_good_path(@knowledge), method: :delete %>
+            <% else %>
+              <%= button_to 'Good', knowledge_knowledge_goods_path(@knowledge) %>
+            <% end %>
           </div>
           <div class="evaluation_btn">
             <%= image_tag "bad.png" ,class:"evaluation_icon" ,width:"30",height:"30"%>

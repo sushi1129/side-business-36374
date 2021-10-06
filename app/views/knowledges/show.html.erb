@@ -37,8 +37,13 @@
             <% end %>
           </div>
           <div class="evaluation_btn">
-            <%= image_tag "bad.png" ,class:"evaluation_icon" ,width:"30",height:"30"%>
-            <span>BAD 0</span>
+            <%= image_tag "bad.png" ,class:"evaluation_icon" ,width:"30",height:"30" %>
+            <span><%= @knowledge.knowledge_bads.count %></span>
+            <% if current_user.already_knowledge_baded?(@knowledge) %>
+              <%= button_to 'Badを取り消す', knowledge_knowledge_bad_path(@knowledge), method: :delete %>
+            <% else %>
+              <%= button_to 'Bad', knowledge_knowledge_bads_path(@knowledge) %>
+            <% end %>
           </div>
         </div>
       <% end %>

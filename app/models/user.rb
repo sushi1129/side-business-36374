@@ -42,4 +42,8 @@ class User < ApplicationRecord
   def already_knowledge_gooded?(knowledge)
     self.knowledge_goods.exists?(knowledge_id: knowledge.id)
   end
+
+  def already_knowledge_baded?(knowledge)
+    self.knowledge_bads.exists?(knowledge_id: knowledge.id)
+  end
 end

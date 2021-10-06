@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :item_comments, dependent: :destroy
   has_many :knowledges, dependent: :destroy
   has_many :knowledge_comments, dependent: :destroy
+  has_many :knowledge_goods, dependent: :destroy
+  has_many :knowledge_gooded_knowledges, through: :knowledge_goods, source: :knowledge
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture

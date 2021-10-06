@@ -24,6 +24,7 @@ class KnowledgesController < ApplicationController
     @knowledge_comments = @knowledge.knowledge_comments.includes(:user)
     @knowledge_comment = KnowledgeComment.new
     @knowledge_good = KnowledgeGood.new
+    @knowledge_bad = KnowledgeBad.new
   end
 
   def edit

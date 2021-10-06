@@ -23,6 +23,7 @@ class KnowledgesController < ApplicationController
   def show
     @knowledge_comments = @knowledge.knowledge_comments.includes(:user)
     @knowledge_comment = KnowledgeComment.new
+    @knowledge_good = KnowledgeGood.new
   end
 
   def edit

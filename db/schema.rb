@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_17_080708) do
+ActiveRecord::Schema.define(version: 2021_10_06_115328) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -55,6 +55,15 @@ ActiveRecord::Schema.define(version: 2021_09_17_080708) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
+  create_table "knowledge_bads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "knowledge_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["knowledge_id"], name: "index_knowledge_bads_on_knowledge_id"
+    t.index ["user_id"], name: "index_knowledge_bads_on_user_id"
+  end
+
   create_table "knowledge_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "text", null: false
     t.bigint "user_id", null: false
@@ -63,6 +72,15 @@ ActiveRecord::Schema.define(version: 2021_09_17_080708) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["knowledge_id"], name: "index_knowledge_comments_on_knowledge_id"
     t.index ["user_id"], name: "index_knowledge_comments_on_user_id"
+  end
+
+  create_table "knowledge_goods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "knowledge_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["knowledge_id"], name: "index_knowledge_goods_on_knowledge_id"
+    t.index ["user_id"], name: "index_knowledge_goods_on_user_id"
   end
 
   create_table "knowledges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -103,7 +121,11 @@ ActiveRecord::Schema.define(version: 2021_09_17_080708) do
   add_foreign_key "item_comments", "items"
   add_foreign_key "item_comments", "users"
   add_foreign_key "items", "users"
+  add_foreign_key "knowledge_bads", "knowledges"
+  add_foreign_key "knowledge_bads", "users"
   add_foreign_key "knowledge_comments", "knowledges"
   add_foreign_key "knowledge_comments", "users"
+  add_foreign_key "knowledge_goods", "knowledges"
+  add_foreign_key "knowledge_goods", "users"
   add_foreign_key "knowledges", "users"
 end

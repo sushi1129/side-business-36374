@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
   def show
     @item_comments = @item.item_comments.includes(:user)
     @item_comment = ItemComment.new
+    @item_good = ItemGood.new
   end
 
   def edit

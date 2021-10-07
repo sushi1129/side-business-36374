@@ -1,0 +1,2 @@
+class ItemBadsController < ApplicationController
+end

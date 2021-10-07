@@ -1,0 +1,2 @@
+module ItemBadsHelper
+end

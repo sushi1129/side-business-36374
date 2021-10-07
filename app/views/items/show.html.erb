@@ -50,8 +50,14 @@
             <div class="evaluation_count"><%= @item.item_goods.count %></div>
           </div>
           <div class="evaluation_btn">
-            <%= image_tag "bad.png" ,class:"evaluation_icon" ,width:"30",height:"30"%>
-            <span>BAD 0</span>
+            <% if current_user.already_item_baded?(@item) %>
+              <%= link_to image_tag("bad.png", class:"evaluation_icon" ,width:"30",height:"30"), item_item_bad_path(@item), method: :delete %>
+              <%= link_to 'Bad', item_item_bad_path(@item), method: :delete %>
+            <% else %>
+              <%= link_to image_tag("bad.png", class:"evaluation_icon" ,width:"30",height:"30"), item_item_bads_path(@item), method: :post %>
+              <%= link_to 'bad', item_item_bads_path(@item), method: :post %>
+            <% end %>
+            <div class="evaluation_count"><%= @item.item_bads.count %></div>
           </div>
         </div>
       </div>

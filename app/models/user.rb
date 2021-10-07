@@ -47,6 +47,10 @@ class User < ApplicationRecord
     self.item_goods.exists?(item_id: item.id)
   end
 
+  def already_item_baded?(item)
+    self.item_bads.exists?(item_id: item.id)
+  end
+
   def already_knowledge_gooded?(knowledge)
     self.knowledge_goods.exists?(knowledge_id: knowledge.id)
   end

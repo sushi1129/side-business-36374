@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   has_many :items, dependent: :destroy
   has_many :item_comments, dependent: :destroy
+  has_many :item_goods, dependent: :destroy
+  has_many :item_gooded_items, through: :item_goods, source: :item
+  has_many :item_bads, dependent: :destroy
+  has_many :item_baded_items, through: :item_bads, source: :item
   has_many :knowledges, dependent: :destroy
   has_many :knowledge_comments, dependent: :destroy
   has_many :knowledge_goods, dependent: :destroy
@@ -39,6 +43,14 @@ class User < ApplicationRecord
   validates_format_of :password, with: PASSWORD_REGEX, message: 'is invalid. Include both letters and numbers',
                                  on: :create
   
+  def already_item_gooded?(item)
+    self.item_goods.exists?(item_id: item.id)
+  end
+
+  def already_item_baded?(item)
+    self.item_bads.exists?(item_id: item.id)
+  end
+
   def already_knowledge_gooded?(knowledge)
     self.knowledge_goods.exists?(knowledge_id: knowledge.id)
   end

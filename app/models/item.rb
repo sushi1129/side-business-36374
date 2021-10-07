@@ -2,6 +2,10 @@ class Item < ApplicationRecord
   belongs_to :user
   has_many :item_comments, dependent: :destroy
   has_one_attached :image, dependent: :destroy
+  has_many :item_goods, dependent: :destroy
+  has_many :item_gooded_users, through: :item_goods, source: :user
+  has_many :item_bads, dependent: :destroy
+  has_many :item_baded_users, through: :item_bads, source: :user
 
   with_options presence: true do
     validates :item_name, :maker, :image, :bought_store

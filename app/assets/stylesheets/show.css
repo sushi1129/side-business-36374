@@ -199,5 +199,12 @@
 }
 
 .evaluation_icon{
-  margin-right: 10px;
+  margin: 0 10px;
+}
+
+.evaluation_count{
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 0 0;
+  font-size: 30px;
 }

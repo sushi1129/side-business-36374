@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   
   resources :items do
     resources :item_comments, only: [:create, :destroy]
+    resources :item_goods, only: [:create, :destroy]
   end
 
   resources :knowledges do

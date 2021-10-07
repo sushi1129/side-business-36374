@@ -40,8 +40,14 @@
         <% end %>
         <div class="evaluations_btn">
           <div class="evaluation_btn">
-            <%= image_tag "good.png" ,class:"evaluation_icon" ,width:"30",height:"30"%>
-            <span>GOOD 0</span>
+            <% if current_user.already_item_gooded?(@item) %>
+              <%= link_to image_tag("good.png", class:"evaluation_icon" ,width:"30",height:"30"), item_item_good_path(@item), method: :delete %>
+              <%= link_to 'Good', item_item_good_path(@item), method: :delete %>
+            <% else %>
+              <%= link_to image_tag("good.png", class:"evaluation_icon" ,width:"30",height:"30"), item_item_goods_path(@item), method: :post %>
+              <%= link_to 'Good', item_item_goods_path(@item), method: :post %>
+            <% end %>
+            <div class="evaluation_count"><%= @item.item_goods.count %></div>
           </div>
           <div class="evaluation_btn">
             <%= image_tag "bad.png" ,class:"evaluation_icon" ,width:"30",height:"30"%>

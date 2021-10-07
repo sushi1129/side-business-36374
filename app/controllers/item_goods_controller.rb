@@ -1,6 +1,6 @@
 class ItemGoodsController < ApplicationController
   def create
-    @item_good = current_user.item_goods.create(item_id: params[:itam_id])
+    @item_good = current_user.item_goods.create(item_id: params[:item_id])
     redirect_back(fallback_location: item_path(@item_good.item))
   end
 

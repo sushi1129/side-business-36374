@@ -72,4 +72,9 @@
 .pull_down_post_list{
   padding: 15px 35px 15px 15px;
   border: 1px solid #F5F5F5;
+  display: flex;
+  justify-content: center;
+}
+.pull_down_post_list:hover{
+  background: #87CEFA;
 }
